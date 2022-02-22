@@ -1,5 +1,5 @@
 #!/bin/bash
-export CF_API_EMAIL=$(cat .cloudflare-email-id)
+export CF_API_EMAIL=$(cat .cloudflare-id)
 export CF_API_KEY=$(cat .cloudflare-token)
 
 

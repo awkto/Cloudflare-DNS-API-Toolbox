@@ -1,5 +1,5 @@
 #!/bin/bash
-export CF_API_EMAIL=$(cat .cloudflare-email-id)
+export CF_API_EMAIL=$(cat .cloudflare-id)
 export CF_API_KEY=$(cat .cloudflare-token)
 
 
@@ -13,4 +13,4 @@ curl -s -X PATCH "https://api.cloudflare.com/client/v4/zones/$domainID" \
      -H "X-Auth-Key: $CF_API_KEY" \
      -H "Content-Type: application/json" \
      --data '{"plan":{"id":"0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee"}}' \
-     | jq
+     | jq .
