@@ -4,7 +4,11 @@
 domainlist=$1
 
 for domain in $(cat $domainlist);do \
-	./force-retransfer-zone.sh $domain; \
+	echo "AXFR request is "$(
+		./force-retransfer-zone.sh $domain \
+		| jq -r .success |sed 's/true/successful/' | sed 's/false/a failure/'
+	) \
+	"for domain : "$domain;
 done
 
 
