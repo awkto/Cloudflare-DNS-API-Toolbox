@@ -4,10 +4,9 @@
 domainlist=$1
 
 for domain in $(cat $domainlist);do \
-	echo "Zone Type is " \
-	$(
-		./check-zone-type.sh $domain \
-		| jq .type \
-	) \
-	" for domain "$domain ; \
+	./force-retransfer-zone.sh $domain; \
 done
+
+
+#POST zones/:identifier/secondary_dns/force_axfr
+
