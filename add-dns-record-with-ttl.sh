@@ -17,7 +17,7 @@ domainid=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=$1" \
 echo $domainid
 
 
-curl -s POST "https://api.cloudflare.com/client/v4/zones/b691901c63c5699abb33783c483fd01c/dns_records" \
+curl -s POST "https://api.cloudflare.com/client/v4/zones/$domainid/dns_records" \
 	-H "X-Auth-Key: $CF_API_KEY" -H "X-Auth-Email: $CF_API_EMAIL" \
 	-H "Content-Type: application/json" \
         --data '{"type":"'$type'","name":"'$record'","content":"'$value'","ttl":"'$ttl'"}' \
