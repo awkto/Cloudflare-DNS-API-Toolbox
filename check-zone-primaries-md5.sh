@@ -9,7 +9,7 @@ domainID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=$doma
   -H "Content-Type: application/json" |jq .result[].id -r) \
 
 #check which primary masters are linked to zone \
-echo "Masters MD5 is : "$(
+echo "Masters MD5 is : "$( \
 	curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$domainID/secondary_dns" \
 		-H "X-Auth-Email: $CF_API_EMAIL" \
 		-H "X-Auth-Key: $CF_API_KEY" \
