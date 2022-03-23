@@ -7,5 +7,6 @@ domainlist=$1
 for domainpair in $(cat $domainlist);do \
 	domain=$(echo $domainpair | awk -F, {'print $1'}); \
 	apextarget=$(echo $domainpair | awk -F, {'print $2'}); \
+	echo "Domain is $domain and Target is $apextarget" ; \
 	./add-cname-at-apex.sh $domain $apextarget ; \
 done

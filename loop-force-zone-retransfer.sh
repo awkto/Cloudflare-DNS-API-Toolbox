@@ -8,7 +8,8 @@ for domain in $(cat $domainlist);do \
 		./force-retransfer-zone.sh $domain \
 		| jq -r .success |sed 's/true/successful/' | sed 's/false/a failure/'
 	) \
-	"for domain : "$domain;
+	"for domain : "$domain; \
+	sleep 0.2; \
 done
 
 
