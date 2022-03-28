@@ -4,7 +4,7 @@
 
 domainlist=$1
 
-for domainpair in $(cat $domainlist);do \
+for domainpair in $(cat $domainlist | grep -v \#);do \
 	domain=$(echo $domainpair | awk -F, {'print $1'}); \
 	apextarget=$(echo $domainpair | awk -F, {'print $2'}); \
 #	./get-zone-apex-records-of-type.sh $domain $apextarget ; \
