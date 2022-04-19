@@ -13,4 +13,4 @@ curl -s -X PATCH "https://api.cloudflare.com/client/v4/zones/$domainID" \
      -H "X-Auth-Key: $CF_API_KEY" \
      -H "Content-Type: application/json" \
      --data '{"plan":{"id":"94f3b7b768b0458b56d2cac4fe5ec0f9"}}' \
-     | jq
+     | jq .
